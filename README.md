@@ -216,7 +216,7 @@ Antes de abrir um merge request:
 - A cobertura é verificada (mínimo 80%), e o merge é bloqueado se os testes falharem.
 
 ### Antes do merge para main:
-- No final da sprint (a cada 2-4 semanas), quando `develop` é mergeada em `main`.
+- No final da sprint, quando `develop` é mergeada em `main`.
 - O pipeline reexecuta todos os testes para garantir que o código consolidado está correto.
 
 ### Frequência:
