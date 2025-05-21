@@ -179,3 +179,48 @@ Antes de abrir um merge request:
 
 - **Componentes testados**: Componentes como `BotaoCTA`, verificando renderização e interações.
 - **Ferramentas**: `Jest`, `React Testing Library`, `ts-jest`.
+
+## Por Quem é Testado? 👥
+
+### Desenvolvedores:
+- Escrevem e executam testes nas branches de atividade (e.g., `feature/add-estacao-route`).
+- Garantem 100% de cobertura localmente antes de abrir um PR, usando `pytest` (backend) ou `npm run test` (frontend).
+- **Exemplo**: Um desenvolvedor implementa `create_estacao` e escreve `test_create_estacao` em `tests/test_estacoes.py`.
+
+### Revisores:
+- Durante o PR para `develop`, outro desenvolvedor revisa o código e os testes, verificando:
+  - Cobertura de cenários (sucesso e erro).
+  - Conformidade com convenções (e.g., sufixo `_test.py` ou `.test.tsx`).
+  - Cobertura mínima de 80% (exigência do QA).
+
+### QA:
+- Define a regra de cobertura mínima (80%) e valida os relatórios de cobertura no pipeline.
+- Revisa critérios de aceitação (Jira) para garantir que os testes os atendem.
+
+### DevOps:
+- Configura e mantém o pipeline de CI/CD (e.g., GitHub Actions, Jenkins) para executar testes automaticamente.
+- Garante que o pipeline bloqueia merges se a cobertura for < 80% ou se testes falharem.
+- **Automação**: O pipeline executa testes em cada push para `develop` e `main`, garantindo validação contínua.
+
+---
+
+## Quando é Testado? 🕒
+
+### Durante o desenvolvimento:
+- Localmente, nas branches de atividade, enquanto o desenvolvedor implementa a funcionalidade.
+- **Exemplo**: Executa `pytest tests/test_estacoes.py` ou `npm run test tests/test_BotaoCTA.test.tsx` várias vezes ao dia.
+
+### Antes do merge para develop:
+- Ao abrir um PR, o pipeline de CI/CD executa todos os testes automaticamente.
+- **Gatilho**: Cada push para o PR ou branch `develop`.
+- A cobertura é verificada (mínimo 80%), e o merge é bloqueado se os testes falharem.
+
+### Antes do merge para main:
+- No final da sprint (a cada 2-4 semanas), quando `develop` é mergeada em `main`.
+- O pipeline reexecuta todos os testes para garantir que o código consolidado está correto.
+
+### Frequência:
+- **Contínua**: Testes locais durante o desenvolvimento (várias vezes ao dia).
+- **Por evento**: Em cada push/PR para `develop` (diário ou várias vezes por sprint).
+- **Sazonal**: No merge para `main` (final da sprint, geralmente quinzenal ou mensal).
+
