@@ -10,12 +10,57 @@ Testes unitários são verificações automatizadas que validam o comportamento 
 
 No projeto, os testes unitários cobrem o backend (rotas FastAPI) e o frontend (componentes React/TSX), usando mocks para simular dependências como o banco de dados PostgreSQL. 🗄️
 
+### O que é uma "Unidade"? 🔍
+
+#### Unidade no Backend (Python/FastAPI) 🐍
+Uma **unidade** no backend é definida como:
+
+- **Função independente**: Funções que implementam lógica de negócio específica, como validações, cálculos, transformações de dados ou processamento de regras.
+  - *Exemplo*: `validar_cep()`, `calcular_distancia_estacoes()`, `formatar_dados_sensor()`
+
+- **Método de classe**: Métodos que encapsulam comportamentos específicos dentro de uma classe, especialmente aqueles que contêm regras de negócio.
+  - *Exemplo*: `Estacao.validar_coordenadas()`, `Sensor.processar_leitura()`, `Usuario.autenticar()`
+
+- **Características importantes**:
+  - Deve ser testável de forma isolada (sem dependências externas como banco de dados)
+  - Possui entrada e saída bem definidas
+  - Implementa uma regra de negócio específica e clara
+  - Pode ser mockada quando usada como dependência de outras unidades
+
+#### Unidade no Frontend (React/TSX) ⚛️
+Uma **unidade** no frontend é definida como:
+
+- **Componente React individual**: Componentes que possuem lógica própria, estado interno ou comportamentos específicos.
+  - *Exemplo*: `BotaoCTA`, `FormularioEstacao`, `CardSensor`, `ModalConfirmacao`
+
+- **Funções auxiliares (utils)**: Funções puras que executam transformações, validações ou cálculos específicos.
+  - *Exemplo*: `formatarData()`, `validarEmail()`, `calcularPercentual()`, `ordenarListaPorNome()`
+
+- **Custom Hooks**: Hooks personalizados que encapsulam lógica reutilizável de estado ou efeitos.
+  - *Exemplo*: `useEstacoes()`, `useValidacao()`, `useLocalStorage()`
+
+- **Características importantes**:
+  - Componentes devem ser renderizáveis independentemente
+  - Funções utils devem ser puras (mesma entrada = mesma saída)
+  - Deve ter responsabilidade única e bem definida
+  - Pode ser testada isoladamente com mocks para props ou dependências externas
+
+### Princípios Gerais 📋
+Independente da tecnologia, uma **unidade** deve:
+- ✅ Ter uma responsabilidade única e bem definida
+- ✅ Ser testável de forma isolada
+- ✅ Possuir entrada e saída previsíveis
+- ✅ Implementar uma lógica de negócio específica
+- ❌ Não depender diretamente de recursos externos (DB, APIs, arquivos)
+- ❌ Não misturar múltiplas responsabilidades
+
 ## 2. Integração com Gitflow 🌳
 
 O projeto adota o Gitflow com as seguintes branches:
 
 - `main`: Código estável, consolidado ao final de cada sprint. 🏁
 - `develop`: Integração e testes de funcionalidades desenvolvidas. 🔧
+- `Testes-Unitários`: Branch dedicada exclusivamente para desenvolvimento e manutenção dos testes unitários. 🧪
 - **Branches de atividade**: Nomeadas como `[SCRUM-<número>] feat/fix: <mensagem>`, criadas para cada tarefa. 📝
 
 ### Fluxo de Testes no Gitflow
