@@ -34,11 +34,6 @@ Uma **unidade** no frontend é definida como:
 - **Custom Hooks**: Hooks personalizados que encapsulam lógica reutilizável de estado ou efeitos.
   - *Exemplo*: `useEstacoes()`, `useValidacao()`, `useLocalStorage()`
 
-- **Características importantes**:
-  - Componentes devem ser renderizáveis independentemente
-  - Funções utils devem ser puras (mesma entrada = mesma saída)
-  - Deve ter responsabilidade única e bem definida
-  - Pode ser testada isoladamente com mocks para props ou dependências externas
 
 ### Princípios Gerais 📋
 Independente da tecnologia, uma **unidade** deve:
