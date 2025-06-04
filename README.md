@@ -10,7 +10,7 @@ Testes unitários são verificações automatizadas que validam o comportamento 
 
 No projeto, os testes unitários cobrem o backend (rotas FastAPI) e o frontend (componentes React/TSX), usando mocks para simular dependências como o banco de dados PostgreSQL. 🗄️
 
-### O que é uma "Unidade"? 🔍
+### O que é uma Unidade? 🔍
 
 #### Unidade no Backend (Python/FastAPI) 🐍
 Uma **unidade** no backend é definida como:
