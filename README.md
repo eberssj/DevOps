@@ -21,11 +21,6 @@ Uma **unidade** no backend é definida como:
 - **Método de classe**: Métodos que encapsulam comportamentos específicos dentro de uma classe, especialmente aqueles que contêm regras de negócio.
   - *Exemplo*: `Estacao.validar_coordenadas()`, `Sensor.processar_leitura()`, `Usuario.autenticar()`
 
-- **Características importantes**:
-  - Deve ser testável de forma isolada (sem dependências externas como banco de dados)
-  - Possui entrada e saída bem definidas
-  - Implementa uma regra de negócio específica e clara
-  - Pode ser mockada quando usada como dependência de outras unidades
 
 #### Unidade no Frontend (React/TSX) ⚛️
 Uma **unidade** no frontend é definida como:
